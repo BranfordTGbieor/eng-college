@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project medicine</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Your description"/>
+    <meta name="keywords" content="Your keywords"/>
+    <meta name="author" content="Your name"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon" />
+
+</head>
+<body>
+<th:block th:fragment="script">
+    <!--Cascading Style Sheet-->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.css}"/>
+    <link rel="stylesheet" th:href="@{/css/superslides.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+    <link rel="stylesheet" th:href="@{/css/isotope.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/media.css}"/>
+    <!--Cascading Style Sheet end-->
+</th:block>
+
+<div class="container">
+<th:block th:fragment="header">
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <!-- blue line -->
+            <div class="col-lg-12-top">
+
+            </div>
+            <!-- End of blue line -->
+
+            <div class="navbar navbar-merab">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <div class="phtext2m">
+                            <i class="fa fa-twitter-square fa-m2x"></i>
+                            <i class="fa fa-facebook-square fa-m2x"></i>
+                            <i class="fa fa-google-plus-square fa-m2x"></i>
+                            <i class="fa fa-linkedin-square fa-m2x"></i>
+                            <i class="fa fa-behance-square fa-m2x"></i>
+                            <i class="fa fa-pinterest-square fa-m2x"></i>
+                        </div>
+
+
+                        <div class="phtext1">
+                            <i class="fa fa-phone fa-lg"> </i> + 1 917 3386410  | <i class="fa fa-envelope-o fa-lg"></i> support@templates-support.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar navbar-undermerabi">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <div class="phtext4m">
+                            <a href="index.html"><img th:src="@{/images/eng_logo.png}"/></i></a>&nbsp;College of Engineering
+                        </div><br>
+                        <div class="phtext3">
+                            <div class="btn btn-default hidden-xs"><a th:href="@{/register}">Sign up</a></div> <div class="btn btn-primary hidden-xs"><i class="fa fa-key fa-xs"></i>&nbsp;<a style="color: white;" th:href="@{/login}">Login</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 gverd">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                                <span class="sr-only">open navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--<a class="navbar-brand" href="#"> Company name</a>-->
+                        </div>
+                        <div class="collapse navbar-collapse" id="responsive-menu">
+
+
+                            <ul class="nav navbar-nav">
+                                <li th:classappend="${activeHome}? 'active'"><a th:href="@{/}">HOME</a></li>
+                                <li th:classappend="${activeAbout}? 'active'"><a th:href="@{/about}">ABOUT</a></li>
+                                <li th:classappend="${activeContact}? 'active'"><a th:href="@{/contact}">CONTACT</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="footer">
+    <div class="navbar navbar-inverse navbar-bottom">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="col-lg-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                            <span class="sr-only">open navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#"> Company name</a>-->
+                    </div>
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="responsive-menu">`
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">HOME</a></li>
+                                <li><a href="index.html#about">ABOUT</a></li>
+                                <li><a href="index.html#ourteam">OUR TEAM</a></li>
+                                <li><a href="index.html#services">SERVICES</a></li>
+                                <li class="dropup">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="blog.html">Blog Left</a></li>
+                                        <li><a href="blog-right.html">Blog Right</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a href="index.html#products">GALLERY</a></li>
+                                <li><a href="index.html#contacts">CONTACT</a></li>
+                                <div class="phtext4b">
+                                    <a href="index.html"><img class="merabino-bottom" th:src="@{/images/eng_logob.png}"></a> College of Engineering <span class="meraba1b"></span>
+                                </div>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</th:block>
+</div>
+
+<!--java script-->
+
+<!-- Template Main Javascript File -->
+<script th:src="@{/js/main.js}"></script>
+
+<!-- Template other Javascript Files -->
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/superfish.js}"></script>
+
+<script th:src="@{/js/jquery.queryloader2.js}"></script>
+
+<script th:src="@{/js/jquery.superslides.js}"></script>
+
+<script th:src="@{/js/jquery.caroufredsel.js}"></script>
+<script th:src="@{/js/jquery.touchSwipe.min.js}"></script>
+
+<script th:src="@{/js/jquery.ui.totop.js}"></script>
+<script th:src="@{/js/jquery.equalheights.js}"></script>
+
+<script th:src="@{/js/jquery.parallax-1.1.3.resize.js}"></script>
+
+<script th:src="@{/js/SmoothScroll.js}"></script>
+
+<script th:src="@{/js/jquery.prettyPhoto.js}"></script>
+<script th:src="@{/js/jquery.isotope.min.js}"></script>
+
+<script th:src="@{/js/cform.js}"></script>
+
+<!--java script end-->
+
+</body>
+
+</html>

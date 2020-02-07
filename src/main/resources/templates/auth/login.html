@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <th:block th:replace="fragments/layouts::script">script</th:block>
+</head>
+<body>
+<div th:replace="fragments/layouts::header"></div>
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+    <div id="contacts">
+        <div class="page_title2"><span><em class="l"></em>Login<em class="r"></em></span></div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h3 class="page_title">Login to Continue</h3>
+
+                <div id="note"></div>
+                <div th:if="${param.error != null}" class="alert alert-danger">Incorrect credentials!</div>
+                <div id="fields">
+                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/login}" method="POST">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+
+                                    <input type="text" class="form-control" id="username" name="username" value="User Name" onBlur="if(this.value=='') this.value='User Name'" onFocus="if(this.value =='User Name' ) this.value=''"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+
+                                    <input type="password" class="form-control" id="password" name="password" value="Password" onBlur="if(this.value=='') this.value='Enter Password'" onFocus="if(this.value =='Enter Password' ) this.value=''"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-default btn-cf-submit">Login</button><a th:href="@{/resetPasswordPage}">Reset Password</a><br><br><br>
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <th:block th:replace="fragments/layouts::footer">footer</th:block>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<div th:if="${param.error != null}" class="error-message">Incorrect credentials!</div>

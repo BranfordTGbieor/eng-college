@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <th:block th:replace="fragments/layouts::script">script</th:block>
+</head>
+<body>
+<div th:replace="fragments/layouts::header"></div>
+
+<div class="container">
+    <div class="rowme">
+        <div class="col-md-8">
+            </ol>
+            <div class="imgWrap">
+
+                <h3><span>About the College of Engineering</span></h3>
+                <a href=""><img src="images/blog3.jpg" class="image"></a>
+
+
+            </div>
+            <div class="container-blog">
+
+                <p class="blogtext">This is the post with title</p>
+                <p>Quisque accumsan nisl eros, vel sagittis justo consequat in. Sed ut gravida enim, sed lobortis nibh. Etiam dapibus felis in libero ultricies rutrum. Aliquam pellentesque justo ut quam pulvinar rhoncus. Sed gravida lobortis congue. Praesent ultricies orci ut enim pellentesque aliquam. Proin viverra lorem nisi, eu mollis ipsum elementum nec. Cras pretium purus nulla, vitae fermentum erat venenatis et.</p>
+
+            </div>
+
+
+            <div class="center">
+                    <div class="btn btn-orange">read more</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-orange" type="button">SEARCH <i class="fa fa-search"></i></button>
+      </span>
+                <input type="text" class="form-control" placeholder="Search for...">
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    CATEGORIES
+                </a>
+                <a href="#" class="list-group-item"> Diagnose & Research <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Cancer Oncology <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Dental sergery <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Neurology <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Drug / Medicine <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Heart Center <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Ambulance <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Medical Counseling <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Pregnancy & Births <i class="fa fa-plus-square orangem"></i></a>
+                <a href="#" class="list-group-item">Endocrinology <i class="fa fa-plus-square orangem"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+
+<div class="row">
+    <th:block th:replace="fragments/layouts::footer">footer</th:block>
+</div>
+</body>
+</html>
