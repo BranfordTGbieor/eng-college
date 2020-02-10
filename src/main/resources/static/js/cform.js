@@ -1,4 +1,4 @@
-$(document).ready(function(){ 
+$(document).ready(function(){
 	$("#ajax-contact-form").submit(function(){
 		var str = $(this).serialize(); 
 		$.ajax( { type: "POST", url: "contact.php", data: str, success: function(msg){ 

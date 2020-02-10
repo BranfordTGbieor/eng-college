@@ -41,7 +41,7 @@ public class AuthController {
     UserSecurityService userSecurityService;
 
 
-
+//controller to register a new user
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(HttpServletRequest request, Model model, @ModelAttribute("email") String userEmail, @ModelAttribute("username") String userName) throws Exception {
 
@@ -51,7 +51,28 @@ public class AuthController {
         if(userService.findByUserName(userName) != null || userService.findByEmail(userEmail) != null) {
             model.addAttribute("userExist", true);
             return "/auth/register";
+        } else {
+
+            if (userName.isEmpty() && userEmail.isEmpty()) {
+                model.addAttribute("usernameBlank", true);
+                model.addAttribute("emailBlank", true);
+                return "/auth/register";
+
+            } else {
+
+                if (userName.isEmpty()) {
+                    model.addAttribute("usernameBlank", true);
+                    return "/auth/register";
+                } else {
+
+                    if (userEmail.isEmpty()) {
+                        model.addAttribute("emailBlank", true);
+                        return "/auth/register";
+                    }
+                }
+            }
         }
+
 
         User user = new User();
         user.setUserName(userName);
@@ -85,8 +106,38 @@ public class AuthController {
         return "/auth/register";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(HttpServletRequest request, Model model,
+                        @ModelAttribute("email") String userEmail,
+                        @ModelAttribute("username") String userName) throws Exception {
+
+        model.addAttribute("email", userEmail);
+        model.addAttribute("username", userName);
+
+        if (userName.isEmpty() && userEmail.isEmpty()) {
+            model.addAttribute("usernameBlank", true);
+            model.addAttribute("emailBlank", true);
+            return "/auth/login";
+
+        } else {
+
+            if (userName.isEmpty()) {
+                model.addAttribute("usernameBlank", true);
+                return "/auth/login";
+            } else {
+
+                if (userEmail.isEmpty()) {
+                    model.addAttribute("emailBlank", true);
+                    return "/auth/login";
+                }
+            }
+
+            return "/";
+        }
+    }
 
 
+//controller to reset a user password
     @RequestMapping("/resetPassword")
     public String forgotPasswordReset( HttpServletRequest request, @ModelAttribute("email") String email, Model model) {
 
@@ -123,7 +174,7 @@ public class AuthController {
 
 
 
-
+//controller to add a new user to the model
     @RequestMapping("/newUser")
     public String newUser(Locale locale, @RequestParam("token") String token, Model model) {
         PasswordResetToken passToken = userService.getPasswordResetToken(token);
@@ -145,6 +196,73 @@ public class AuthController {
 
         model.addAttribute("user", user);
 
-        return "/auth/userProfile";
+        return "/auth/userDetails";
     }
+
+//controller to update user details
+    @RequestMapping("/updateUserDetails")
+    public String updateUser(Model model, Locale locale,
+                             @ModelAttribute("email") String userEmail,
+                             @ModelAttribute("username") String userName,
+                             @ModelAttribute("firstName") String firstName,
+                             @ModelAttribute("lastName") String lastName,
+                             @ModelAttribute("phone") String phone,
+                             @ModelAttribute("password") String password,
+                             @ModelAttribute("retypedPassword") String retypedPassword,
+                             @ModelAttribute("id") Long id) {
+
+        model.addAttribute("id", id);
+        model.addAttribute("email",userEmail);
+        model.addAttribute("username",userName);
+        model.addAttribute("firstName",firstName);
+        model.addAttribute("lastName",lastName);
+        model.addAttribute("phone",phone);
+        model.addAttribute("password",password);
+        model.addAttribute("retypedPassword",retypedPassword);
+
+        int phoneMinLength = 13;
+
+        if (userService.findByUserName(userName) != null) {
+
+            model.addAttribute("userNameExist", true);
+            return "/auth/userDetails";
+        }
+
+        if (userService.findByEmail(userEmail) != null) {
+
+            model.addAttribute("userEmailExist", true);
+            return "/auth/userDetails";
+        }
+
+        if (retypedPassword != password) {
+
+            model.addAttribute("passwordMismatch", true);
+            return "/auth/userDetails";
+        }
+
+        //proper validation to be done on phone later
+        if (phone.length() < phoneMinLength || phone.length() > phoneMinLength) {
+
+            model.addAttribute("invalidPhone", true);
+            return "/auth/userDetails";
+        }
+
+
+        User user = new User();
+        user.setUserName(userName);
+        user.setEmail(userEmail);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setPhone(phone);
+
+        String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
+        user.setPassWord(encryptedPassword);
+
+        userService.save(user);
+        model.addAttribute("userDetailsUpdated",true);
+
+        return "/auth/userDetails";
+
+    }
+
 }

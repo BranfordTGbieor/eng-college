@@ -254,7 +254,7 @@ min-height: 71px;
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   color: #fff;
-  background-color: #f16528;
+  background-color: #80461b;
 }
 .caret {
   display: inline-block;
@@ -335,7 +335,7 @@ min-height: 71px;
  padding-left: 149px;
 }
 .meraba {
-color: #f16528;
+color: #80461b;
     font-weight: 100;
     
 }
@@ -400,14 +400,14 @@ border-bottom-width: 1px;
   border-bottom-color:#ddd;
 }
 .meraba1 {
-color: #f16528;
+color: #80461b;
     font-weight: 200;
     font-size: 26px;
     
 }
 
 .meraba1b {
-  color: #f16528;
+  color: #80461b;
   font-weight: 200;
   font-size: 19px;
 }
@@ -484,7 +484,7 @@ h4, .h4 {
     padding-left: 0px;
     border-top-style: solid;
     border-top-width: 10px;
-    border-top-color: #f16528;
+    border-top-color: #80461b;
 }
 .container-fluid{
   margin-right: 0px;
@@ -523,7 +523,7 @@ letter-spacing: 4px;
 }
 .fa-m2x:hover {
   font-size: 1.9em;
-    color: #e96826;
+    color: #80461b;
     transition: 0.2s;
 }
 .fa-3x:hover {
@@ -552,13 +552,13 @@ letter-spacing: 4px;
 .fa-6x {
   font-size: 8em;
     padding-left: 120px;
-    color: #f16528;
+    color: #80461b;
 }
 .fa-6md {
     padding-top: 30px;
   font-size: 8em;
     
-    color: #f16528;
+    color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -595,18 +595,18 @@ background-color: #363636;
 .orange {
     text-align: center;
     margin-top: 5px;
-color:#f16528;
+color:#80461b;
       float: right;
 }
 .orange2 {
     text-align: center;
     font-size: 8.5px;
     margin-top: 5px;
-color:#f16528;
+color:#80461b;
 }
 .orangem {
     margin: 3px 10px 0 0;
-    color: #f16528;
+    color: #80461b;
     float: left;
 }
 p {
@@ -745,7 +745,7 @@ color:black;
 padding-left: 500px;
 }
 .fa-phone, .fa-envelope-o {
-color: #f16528;
+color: #80461b;
     
 }
 
@@ -772,8 +772,8 @@ color: #f16528;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #f16528;
-  border-color: #f16528;
+  background-color: #80461b;
+  border-color: #80461b;
     transition: 0.2s;
 }
 
@@ -789,8 +789,8 @@ background-color: #c8e3fe;
 }
 .btn-orange {
   color: #fff;
-  background-color: #f16528;
-  border-color: #f16528;
+  background-color: #80461b;
+  border-color: #80461b;
 }
 .btn-orange:hover {
   color: #000;
@@ -813,7 +813,7 @@ margin-top: 10px;
   padding: 10px 20px;
   border: 2px;
   border-radius: 21px;
-  background-color: #f16528;
+  background-color: #80461b;
 }
 .posmd {
     margin-left: 60px;
@@ -821,7 +821,7 @@ margin-top: 10px;
     padding: 10px 20px;
     border: 2px;
     border-radius: 21px;
-    background-color: #f16528;
+    background-color: #80461b;
 }
 .possm {
     margin-left: 250px;
@@ -829,7 +829,7 @@ margin-top: 10px;
     padding: 10px 20px;
     border: 2px;
     border-radius: 21px;
-    background-color: #f16528;
+    background-color: #80461b;
 }
 .posxs {
     margin-left: 25px;
@@ -837,7 +837,7 @@ margin-top: 10px;
     padding: 10px 20px;
     border: 2px;
     border-radius: 21px;
-    background-color: #f16528;
+    background-color: #80461b;
 }
 .pos:hover {
     background-color: #f1804f;
@@ -984,7 +984,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 #ajax-contact-form .form-group{margin-top: -2px; margin-left: 0; margin-right: 0;}
 #ajax-contact-form .form-group label{color: #fff;}
 #ajax-contact-form .form-control{height: 38px; padding: 8px 12px; font-size: 14px; line-height: 20px; color: #727271; background: #fff;border: 1px solid #8f8f8f;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
-#ajax-contact-form .form-control:focus{border-color: #f16528; color: #fff;}
+#ajax-contact-form .form-control:focus{border-color: #80461b; color: black;}
 #ajax-contact-form textarea.form-control {height: auto;}
 #ajax-contact-form .form-group.img{float: left;}
 #ajax-contact-form .form-group.img img{width:170px; height:38px;}
@@ -993,11 +993,11 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
     margin-left: 16px;
 transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
 }
-.btn-default.btn-cf-submit:hover{background: #f16528; color: #fff; border-color: #f2bf02;}
+.btn-default.btn-cf-submit:hover{background: #80461b; color: #fff; border-color: #f2bf02;}
 
 
 .location1 i {
-  color: #f16528;
+  color: #80461b;
   font-size: 30px;
   float: left;
   padding-right: 15px;

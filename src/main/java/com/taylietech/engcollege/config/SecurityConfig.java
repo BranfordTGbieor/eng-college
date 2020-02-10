@@ -31,15 +31,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static final String[]  PUBLIC_MATCHERS = {
             "/css/**",
             "/js/**",
+            "/lib/**",
             "/images/**",
             "/fonts/**",
+            "/static/**",
             "/",
             "/login",
             "/register",
             "/about",
             "/newUser",
             "/contact",
-            "/resetPasswordPage"
+            "/resetPasswordPage",
+            "/userDetails",
+            "/electrical",
+            "/civil",
+            "/geology",
+            "/mining",
+            "/sendMessage"
     };
 
     protected void configure(HttpSecurity httpSecurity) throws Exception {

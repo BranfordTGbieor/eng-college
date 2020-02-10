@@ -64,7 +64,7 @@
 transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
 }
 #filters li a:hover {color: #201f1e; background: #f2f2f2;}
-#filters.pagination li a.selected {color: #fff; background: #f16528; border-color: #f16528;}
+#filters.pagination li a.selected {color: #fff; background: #80461b; border-color: #80461b;}
 
 
 

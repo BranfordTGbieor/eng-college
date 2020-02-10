@@ -1,0 +1,86 @@
+/*403 page styling */
+#container_anim{
+    position:relative;
+    width:100%;
+    height:70%;
+}
+
+#key{
+    position:absolute;
+    top:77%;
+    left:-33%;
+}
+
+#text{
+    font-size:4rem;
+    position:absolute;
+    top:55%;
+    width:100%;
+    text-align:center;
+}
+
+#credit{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    text-align:center;
+}
+
+
+
+/* 404 page styling */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+   .center-xy {
+       width: inherit;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%,-50%);
+       position: absolute;
+   }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.copy-container {
+    text-align: center;
+}
+
+.handle {
+    background: #ffe500;
+    width: 14px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    margin-top: 1px;
+    position: absolute;
+}
+
+#cb-replay hover {
+    fill: #666;
+    width: 20px;
+    margin: 15px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    overflow: inherit;
+    cursor: pointer;
+    fill: #888;
+}
+
+
+/*additional css styling */
+
+
+
+.my_page_title{
+    font-size: 30px; line-height: 36px;
+    color: #80461b;
+    font-family: 'Shadows+Into+Light';
+    font-weight: 200;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}

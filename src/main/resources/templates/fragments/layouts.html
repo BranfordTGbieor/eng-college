@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html><!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Project medicine</title>
@@ -35,9 +26,9 @@
     <link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/media.css}"/>
     <!--Cascading Style Sheet end-->
+
 </th:block>
 
-<div class="container">
 <th:block th:fragment="header">
     <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -61,7 +52,7 @@
 
 
                         <div class="phtext1">
-                            <i class="fa fa-phone fa-lg"> </i> + 1 917 3386410  | <i class="fa fa-envelope-o fa-lg"></i> support@templates-support.com
+                            <i class="fa fa-phone fa-lg"> </i> + 231 776 578 735  | <i class="fa fa-envelope-o fa-lg"></i> support@ulengineeringcollege.lr.edu
                         </div>
                     </div>
                 </div>
@@ -74,7 +65,8 @@
                             <a href="index.html"><img th:src="@{/images/eng_logo.png}"/></i></a>&nbsp;College of Engineering
                         </div><br>
                         <div class="phtext3">
-                            <div class="btn btn-default hidden-xs"><a th:href="@{/register}">Sign up</a></div> <div class="btn btn-primary hidden-xs"><i class="fa fa-key fa-xs"></i>&nbsp;<a style="color: white;" th:href="@{/login}">Login</a></div>
+                            <div class="btn btn-default hidden-xs"><a th:href="@{/register}">Sign up</a></div>
+                            <div style="text-decoration: none;" class="btn btn-primary hidden-xs"><i class="fa fa-key fa-xs"></i>&nbsp;<a style="color: white;" th:href="@{/login}">Login</a></div>
                         </div>
                     </div>
                 </div>
@@ -101,18 +93,29 @@
                                 <li th:classappend="${activeHome}? 'active'"><a th:href="@{/}">HOME</a></li>
                                 <li th:classappend="${activeAbout}? 'active'"><a th:href="@{/about}">ABOUT</a></li>
                                 <li th:classappend="${activeContact}? 'active'"><a th:href="@{/contact}">CONTACT</a></li>
-
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">DEPARTMENTS <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/electrical}">Electrical & Computer Engineering</a></li>
+                                        <li><a th:href="@{/civil}">Civil Engineering</a></li>
+                                        <li><a th:href="@{/geology}">Geology</a></li>
+                                        <li><a th:href="@{mining}">Mining Engineering</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-lg-1"></div>
                     </div>
                 </div>
             </div>
+            <div class="container-fluid1"></div>
         </div>
     </div>
 </th:block>
 
 <th:block th:fragment="footer">
+
+
     <div class="navbar navbar-inverse navbar-bottom">
         <div class="container-fluid">
             <div class="row">
@@ -158,13 +161,8 @@
             </div>
         </div>
     </div>
+
 </th:block>
-</div>
-
-<!--java script-->
-
-<!-- Template Main Javascript File -->
-<script th:src="@{/js/main.js}"></script>
 
 <!-- Template other Javascript Files -->
 <script th:src="@{/js/jquery.js}"></script>
@@ -189,10 +187,10 @@
 <script th:src="@{/js/jquery.prettyPhoto.js}"></script>
 <script th:src="@{/js/jquery.isotope.min.js}"></script>
 
-<script th:src="@{/js/cform.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
 
+<script th:src="@{/js/bootstrap.min.js}"></script>
 <!--java script end-->
 
 </body>
-
 </html>

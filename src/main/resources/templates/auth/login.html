@@ -15,30 +15,30 @@
         <div class="row">
             <div class="col-sm-12">
 
-                <h3 class="page_title">Login to Continue</h3>
+                <h3 class="my_page_title">sign into your account</h3>
 
                 <div id="note"></div>
-                <div th:if="${param.error != null}" class="alert alert-danger">Incorrect credentials!</div>
                 <div id="fields">
                     <form id="ajax-contact-form" class="form-horizontal" th:action="@{/login}" method="POST">
                         <div class="row">
+                            <div th:if="${param.error != null}" class="alert alert-danger">Incorrect credentials!</div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-
-                                    <input type="text" class="form-control" id="username" name="username" value="User Name" onBlur="if(this.value=='') this.value='User Name'" onFocus="if(this.value =='User Name' ) this.value=''"/>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="enter your username"/>
+                                    <div th:if="${usernameBlank}" style="color: red;">The username field can not be blank</div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-
-                                    <input type="password" class="form-control" id="password" name="password" value="Password" onBlur="if(this.value=='') this.value='Enter Password'" onFocus="if(this.value =='Enter Password' ) this.value=''"/>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="enter your password"/>
+                                    <div th:if="${emailBlank}" style="color: red;">The email field can not be blank</div>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-default btn-cf-submit">Login</button><a th:href="@{/resetPasswordPage}">Reset Password</a><br><br><br>
+                        <center><button type="submit" class="btn-default btn-cf-submit">Login</button>&nbsp;&nbsp;&nbsp;<a th:href="@{/resetPasswordPage}">Reset Password</a></center><br><br><br>
                     </form>
                 </div>
 

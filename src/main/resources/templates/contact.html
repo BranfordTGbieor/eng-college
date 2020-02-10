@@ -15,55 +15,65 @@
         <div class="row">
             <div class="col-sm-12">
 
-                <h3 class="page_title">Contact Form</h3>
+                <h3 class="my_page_title">wants to get in touch with the college?</h3>
 
                 <div id="note"></div>
                 <div id="fields">
-                    <form id="ajax-contact-form" class="form-horizontal" action="javascript:alert('success!');">
+                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/sendMessage}" method="post">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div th:if="${messageSent}" class="alert alert-success">Your message has been sent! We'll get in touch soon.</div>
+                            <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="text" class="form-control" id="inputName" name="name" value="Full Name" onBlur="if(this.value=='') this.value='Full Name'" onFocus="if(this.value =='Full Name' ) this.value=''">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="enter your name">
+                                    <div th:if="${nameBlank}" style="color: red;">The email field can not be blank</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="enter your email">
+                                    <div th:if="${emailBlank}" style="color: red;">The email field can not be blank</div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="text" class="form-control" id="inputEmail" name="email" value="E-mail address" onBlur="if(this.value=='') this.value='E-mail address'" onFocus="if(this.value =='E-mail address' ) this.value=''">
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="enter the subject of your message">
+                                    <div th:if="${subjectBlank}" style="color: red;">The subject field can not be blank</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="text" class="form-control" id="inputPhone" name="phone" value="Phone" onBlur="if(this.value=='') this.value='Phone'" onFocus="if(this.value =='Phone' ) this.value=''">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="enter your phone-number">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-
-            <textarea class="form-control" rows="5" id="inputMessage" name="content" onBlur="if(this.value=='') this.value='Message'"
-                      onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
+                                    <textarea class="form-control" rows="5" id="message" name="message" placeholder="write your message"></textarea>
+                                    <div th:if="${messageBlank}" style="color: red;">The email field can not be blank</div>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-default btn-cf-submit">Submit</button><br><br>
+                        <center><button type="submit" class="btn-default btn-cf-submit">Send Message</button></center><br><br><br>
                     </form>
                 </div>
-
-
-
             </div>
         </div>
     </div>
 </div>
 
 <div class="row">
+x    <div cass="container-fluid">
+        <div id="google_map">
+            <figure class="google_map">
+                <div class="container-fluid1"></div>
+                <div style="width: 100%"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.3200117636093!2d-10.620811855314253!3d6.379857624519244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xad7d50f4e1778b21!2sUniversity%20of%20Liberia%20Engineering%20Department!5e1!3m2!1sen!2s!4v1581299546765!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div><br />
+            </figure>
+        </div>
+    </div>
     <th:block th:replace="fragments/layouts::footer">footer</th:block>
 </div>
 </body>

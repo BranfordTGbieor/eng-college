@@ -19,12 +19,12 @@
 .fa-5x {
   font-size: 8em;
   padding-left: 133px;
-  color: #2986e3;
+  color: #80461b;
 }
 .fa-6x {
   font-size: 8em;
   padding-left: 120px;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -60,7 +60,7 @@ color:black;
 }
 .textorange {
     text-align: center;
-color:#f16528;
+color:#80461b;
     font-size: 16px;
     
 }
@@ -134,7 +134,7 @@ font-size: 45px;
 .orange {
     
     margin-top: 5px;
-color:#f16528;
+color:#80461b;
       float: left;
 }
 
@@ -213,12 +213,12 @@ color:#f16528;
 .fa-5x {
   padding: 0 0 0 45%;
   font-size: 8em;
-  color: #2986e3;
+  color: #80461b;
 }
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 44%;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -372,7 +372,7 @@ font-size: 45px;
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 44%;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -477,7 +477,7 @@ font-size: 45px;
     font-size: 23px;
 }
     .meraba1 {
-    color: #f16528;
+    color: #80461b;
     font-weight: 200;
     font-size: 23px;
 }
@@ -556,7 +556,7 @@ font-size: 45px;
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 42.5%;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -680,7 +680,7 @@ font-size: 45px;
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 42.5%;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -802,7 +802,7 @@ font-size: 45px;
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 39.5%;
-  color: #f16528;
+  color: #80461b;
 }
 .fa-7x {
   font-size: 8em;
@@ -919,7 +919,7 @@ font-size: 40px;
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     color: #fff;
-    background-color: #f16528;
+    background-color: #80461b;
     -webkit-transition: all .25s;
     -o-transition: all .25s;
     transition: all .25s;
@@ -979,7 +979,7 @@ font-size: 40px;
 .fa-6x {
   font-size: 8em;
   padding: 0 0 0 31.5%;
-  color: #f16528;
+  color: #80461b;
     margin-top: -30px;
 }
 .fa-7x {
@@ -1100,7 +1100,7 @@ h2, .h2 {
 } 
 
 .meraba1 {
-    color: #f16528;
+    color: #80461b;
     font-weight: 200;
     font-size: 20px;
 }
