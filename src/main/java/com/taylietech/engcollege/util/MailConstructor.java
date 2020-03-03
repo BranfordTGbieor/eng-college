@@ -33,11 +33,10 @@ public class MailConstructor {
 
     public SimpleMailMessage constructMessageEmail( String name, String userEmail, String phone, String subject, String message) {
 
-        String receiverEmail = "gbieorbranford@gmail.com";
         String userMessage = message + "\n\n\n" +name+ "\n"+phone;
 
         SimpleMailMessage email = new SimpleMailMessage();
-        email.setTo(receiverEmail);
+        email.setTo(env.getProperty("support.email"));
         email.setSubject(subject);
         email.setFrom(userEmail);
         email.getSentDate();
@@ -46,5 +45,19 @@ public class MailConstructor {
         return email;
 
     }
+
+    public SimpleMailMessage constructSubscribeEmail( String _email) {
+
+        String message = "\nYou have subscription for updates has been processed successfully!. \nYou can unsubscribe by clicking:";
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo(_email);
+        email.setSubject("User Subscription Confirmation");
+        email.setText(message);
+        email.setFrom(env.getProperty("support.email"));
+
+        return email;
+
+    }
+
 }
 

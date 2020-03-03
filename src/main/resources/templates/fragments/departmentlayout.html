@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project medicine</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Your description"/>
+    <meta name="keywords" content="Your keywords"/>
+    <meta name="author" content="Your name"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/png"/>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Sketch&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:fragment="script">
+    <!--Cascading Style Sheet-->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome.css}"/>
+    <link rel="stylesheet" th:href="@{/css/superslides.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prettyPhoto.css}"/>
+    <link rel="stylesheet" th:href="@{/css/isotope.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/aos.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.css}">
+
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/media.css}"/>
+    <!--Cascading Style Sheet end-->
+
+    <script th:src="@{/js/main.js}"></script>
+
+</th:block>
+
+<th:block th:fragment="header">
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <!-- blue line -->
+            <div class="col-lg-12-top">
+
+            </div>
+            <!-- End of blue line -->
+
+            <div class="navbar navbar-merab">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <div class="phtext2m">
+                            <i class="fa fa-twitter-square fa-m2x"></i>
+                            <i class="fa fa-facebook-square fa-m2x"></i>
+                            <i class="fa fa-google-plus-square fa-m2x"></i>
+                            <i class="fa fa-linkedin-square fa-m2x"></i>
+                            <i class="fa fa-youtube-square fa-m2x"></i>
+                            <i class="fa fa-pinterest-square fa-m2x"></i>
+                        </div>
+
+
+                        <div class="phtext1">
+                            <!--<span style="font-style: italic;" th:text="${user != null} ? ${#strings.toUpperCase(user.username)} : 'user is null'"></span>-->
+                            <i class="fa fa-phone fa-lg"> </i> + 231 776 578 735  &nbsp;| &nbsp;<i class="fa fa-envelope-o fa-lg"></i> support@ulengineeringcollege.lr.edu
+                            | &nbsp;<i class="fa fa-bell fa-lg"></i> <a th:href="@{/subscribe}" style="text-decoration: none; cursor: pointer;">subscribe to newsletter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar navbar-undermerabi">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <div class="phtext4m">
+                            <a th:href="@{/}"><img style="margin-top: -10px;" th:src="@{/images/eng_logo.png}"/></i></a>&nbsp;<span style="color: #80461b;">College of Engineering</span>
+                        </div><br>
+                        <div th:if="${session.user eq null}" class="phtext3" style="margin-top: -22px;">
+                            <a class="auth_link" style="text-decoration: none" th:href="@{/register}">register</a> |
+                            <a class="auth_link" style="text-decoration: none" th:href="@{/login}">Login</a>
+                        </div>
+                        <div th:if="${session.user ne null}" class="phtext3" style="margin-top: -22px;">
+                            <ul style="list-style-type: none;">
+                                <li class="dropdown">
+                                    <div style="display: inline-block; font-size: 20px;">
+                                        <span th:text="${session.user.firstName+' '+session.user.lastName}"></span>&nbsp;
+                                    </div>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-xs"></i></a>
+                                    <ul class="dropdown-menu" style="margin-left: 65px; width: inherit !important;">
+                                        <li><a class="black-text" th:href="@{/userDetails}"><span><i class="fa fa-cog fa-xs"></i>&nbsp;Setting</span></a></li>
+                                        <!--<li><a class="black-text" href="#"><span><i class="fa fa- fa-xs"></i>&nbsp;Profile</span></a></li>-->
+                                        <li><a class="black-text" th:href="@{/logout}"><span><i class="fa fa-sign-out fa-xs"></i>&nbsp;Logout</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 gverd">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                                <span class="sr-only">open navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--<a class="navbar-brand" href="#"> Company name</a>-->
+                        </div>
+                        <div class="collapse navbar-collapse" id="responsive-menu">
+                            <ul class="nav navbar-nav">
+                                <li th:classappend="${activeHome}? 'active'"><a th:href="@{/}">HOME</a></li>
+                                <li th:classappend="${activeAbout}? 'active'"><a th:href="@{/about}">COURSE GUIDES</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPECIALIZATIONS <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/electrical}">Electrical & Computer Engineering</a></li>
+                                        <li><a th:href="@{/civil}">Civil Engineering</a></li>
+                                        <li><a th:href="@{/geology}">Geology</a></li>
+                                        <li><a th:href="@{mining}">Mining Engineering</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid1"></div>
+        </div>
+    </div>
+</th:block>
+
+<th:block th:fragment="footer">
+
+    <div class="container-fluid1"></div>
+    <div class="navbar navbar-inverse navbar-bottom">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="col-lg-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                            <span class="sr-only">open navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand" href="#"> Company name</a>-->
+                    </div>
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="responsive-menu">`
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">HOME</a></li>
+                                <li><a href="index.html#about">ABOUT</a></li>
+                                <li><a href="index.html#ourteam">OUR TEAM</a></li>
+                                <li><a href="index.html#services">SERVICES</a></li>
+                                <li class="dropup">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="blog.html">Blog Left</a></li>
+                                        <li><a href="blog-right.html">Blog Right</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a href="index.html#products">GALLERY</a></li>
+                                <li><a href="index.html#contacts">CONTACT</a></li>
+                                <div class="phtext4b">
+                                    <a href="index.html"><img class="merabino-bottom" th:src="@{/images/eng_logob.png}"></a> College of Engineering <span class="meraba1b"></span>
+                                </div>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="navbar navbar-merab">
+                    <div class="container">
+
+                        <div class="col-lg-12">
+                            <div class="phtext2m">
+                                <h2 class="">connect with us</h2>
+                                <i class="fa fa-twitter-square fa-3x"></i>
+                                <i class="fa fa-facebook-square fa-3x"></i>
+                                <i class="fa fa-google-plus-square fa-3x"></i>
+                                <i class="fa fa-linkedin-square fa-3x"></i>
+                                <i class="fa fa-youtube-square fa-3x"></i>
+                                <i class="fa fa-pinterest-square fa-3x"></i>
+                            </div>
+
+
+                            <div class="phtext1">
+                                <div class="row">
+                                    <form id="ajax-contact-form" action="#" method="post" onsubmit="return validateSearch(this)">
+                                        <h2 style="margin-left: 14px;" class="">search this site</h2>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="search" id="search" class="form-control mr-3" placeholder="Search" onblur="document.getElementById('search-site').innerHTML = '';"/>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input style="margin-left: -18px;" type="submit" value="Search" class="btn-default btn-submit"/>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="search-site" class="js-error"></div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <p style="color: #ffffff; text-align: center; padding: 20px;">
+                    <strong>University of Liberia</strong>
+                    <br>Copyright &copy;
+                    <script type="text/JavaScript">var theDate=new Date();document.write(theDate.getFullYear()) </script>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+<!-- Template other Javascript Files -->
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script th:src="@{/js/superfish.js}"></script>
+
+<script th:src="@{/js/jquery.queryloader2.js}"></script>
+
+<script th:src="@{/js/jquery.superslides.js}"></script>
+
+<script th:src="@{/js/jquery.caroufredsel.js}"></script>
+<script th:src="@{/js/jquery.touchSwipe.min.js}"></script>
+
+<script th:src="@{/js/jquery.ui.totop.js}"></script>
+<script th:src="@{/js/jquery.equalheights.js}"></script>
+
+<script th:src="@{/js/jquery.parallax-1.1.3.resize.js}"></script>
+
+<script th:src="@{/js/SmoothScroll.js}"></script>
+
+<script th:src="@{/js/jquery.prettyPhoto.js}"></script>
+<script th:src="@{/js/jquery.isotope.min.js}"></script>
+
+<script th:src="@{/js/scripts.js}"></script>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<!--java script end-->
+
+</body>
+</html>

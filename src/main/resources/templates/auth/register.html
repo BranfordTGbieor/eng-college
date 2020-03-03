@@ -19,14 +19,18 @@
 
                 <div id="note"></div>
                 <div id="fields">
-                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/register}" method="post">
+                    <form action="#" id="ajax-contact-form" class="form-horizontal" th:action="@{/register}" method="post" onsubmit="return validateRegister(this)">
                         <div class="row">
-                            <div th:if="${userExist}" class="alert alert-danger">The user already exist</div>
-                            <div th:if="${emailSent}" class="alert alert-success">Check your email to complete the registration process</div>
+
                             <div class="col-sm-12">
+                                <div th:if="${userExist}" class="error">The user already exist</div>
+                                <div th:if="${emailSent}" class="success">Check your email to complete the registration process</div><br>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"/>
-                                    <div th:if="${usernameBlank}" style="color: red;">The username field can not be blank</div>
+                                    <div class="js-error" id="username-label"></div>
+                                    <div th:if="${usernameBlank}" class="error">The username field can not be blank</div>
+                                    <div th:if="${userNameExist}" class="error">The username entered already exist, enter a new one.</div>
+                                    <div th:if="${lessCharacter}" class="error">Your username can not be less than 3 characters!</div>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +38,10 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"/>
-                                    <div th:if="${emailBlank}" style="color: red;">The email field can not be blank</div>
+                                    <div class="js-error" id="email-label"></div>
+                                    <div th:if="${emailBlank}" class="error">The email field can not be blank</div>
+                                    <div th:if="${userEmailExist}" class="error">The email entered already exist.</div>
+                                    <div th:if="${emailNotValid}" class="error">Please enter a valid email address!</div>
                                 </div>
                             </div>
                         </div>

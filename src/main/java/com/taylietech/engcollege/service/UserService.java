@@ -4,6 +4,7 @@ import com.taylietech.engcollege.model.User;
 import com.taylietech.engcollege.model.security.PasswordResetToken;
 import com.taylietech.engcollege.model.security.UserRole;
 
+import java.util.Optional;
 import java.util.Set;
 
 public interface UserService {
@@ -15,6 +16,8 @@ public interface UserService {
     User findByUserName(String username);
 
     User findByEmail(String email);
+
+    Optional<User> findById(Long id);
 
     User createUser(User user, Set<UserRole> userRoles) throws Exception;
 

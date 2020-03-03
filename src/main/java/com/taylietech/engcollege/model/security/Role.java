@@ -10,6 +10,7 @@ public class Role {
     public Role() {}
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long roleId;
     private String name;
 

@@ -11,89 +11,85 @@
 <div class="container">
     <div id="contacts">
         <div class="page_title2"><span><em class="l"></em>Update Your Information<em class="r"></em></span></div>
-
+        <!--<span style="font-style: italic;" th:text="${user != null} ? ${#strings.toUpperCase(user.username)} : 'user is null'"></span>-->
         <div class="row">
             <div class="col-sm-12">
 
-                <h3 class="page_title">User Profile</h3>
+                <h3 class="my_page_title">User Profile</h3>
 
                 <div id="note"></div>
-
                 <div id="fields">
-                    <div th:if="${userDetailsUpdated}" class="alert alert-success">Your info has been updated successfully!</div>
-                    <form id="#ajax-contact-form" class="form-horizontal" th:action="@{/updateUserDetails}" method="post">
+                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/updateUserDetails}" method="post" onsubmit="return validateUserDetails(this)">
                         <div class="row">
                             <div class="col-sm-12">
+                                <div th:if="${userDetailsUpdated}" class="success">Your info has been updated successfully!</div>
+                                <div th:if="${userNameExist}" class="error">The username already exist!</div>
+                                <div th:if="${userEmailExist}" class="error">The user email exist! Enter your personal email.</div>
+                                <div class="error" th:if="${passwordMismatch}">The retyped password does not match the password you entered</div>
                                 <div class="form-group">
                                     <input type="hidden" name="id" th:value="${user.id}"/>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="username" name="username" value="Username" th:value="${user.username}"
-                                           onBlur="if(this.value=='') this.value='Username'" onFocus="if(this.value =='Username' ) this.value=''"/>
-                                </div>
-                                <div th:if="${userNameExist}" class="alert alert-error">The username already exist!</div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="inputEmail" name="email" value="E-mail address" th:value="${user.email}"
-                                           onBlur="if(this.value=='') this.value='E-mail address'" onFocus="if(this.value =='E-mail address' ) this.value=''"/>
-                                </div>
-                                <div th:if="${userEmailExist}" class="alert alert-error">The user email exist! Enter your personal email.</div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-
-                                    <input type="text" class="form-control" id="inputPhone" name="phone" value="Phone" th:value="${user.phone}"
-                                           onBlur="if(this.value=='') this.value='Phone'" onFocus="if(this.value =='Phone' ) this.value=''"/>
-                                </div>
-                                <div th:if="${invalidPhone}">The phone number you entered is not correct!</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-
-                                    <input type="text" class="form-control" id="firstName" name="firstName" value="First-Name" th:value="${user.firstName}"
-                                           onBlur="if(this.value=='') this.value='First-Name'" onFocus="if(this.value =='First-Name' ) this.value=''"/>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="username" th:value="${user.username}"/>
+                                    <div id="user-username" class="js-error"></div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="text" class="form-control" id="lastName" name="lastName" value="Last-Name" th:value="${user.lastName}"
-                                           onBlur="if(this.value=='') this.value='Last-Name'" onFocus="if(this.value =='Last-Name' ) this.value=''"/>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="email" th:value="${user.email}"/>
+                                    <div id="user-email" class="js-error"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="password" class="form-control" id="newPassword" name="newPassword" value="Enter new password"
-                                           onBlur="if(this.value=='') this.value='Enter new password'" onFocus="if(this.value =='Enter new password' ) this.value=''"/>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="generated password"/>
+                                    <div id="generated-password" class="js-error"></div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-
-                                    <input type="password" class="form-control" id="retypeNewPassword" name="retypeNewPassword" value="Re-enter new password"
-                                           onBlur="if(this.value=='') this.value='Re-enter new password'" onFocus="if(this.value =='Re-enter new password' ) this.value=''"/>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="phone" th:value="${user.phone}"/>
+                                    <div id="user-phone" class="js-error"></div>
                                 </div>
-                                <div th:if="${passwordMismatch}">The retyped password does not match the password you entered</div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="first-name" th:value="${user.firstName}"/>
+                                    <div id="first-name" class="js-error"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="last-name" th:value="${user.lastName}"/>
+                                    <div id="last-name" class="js-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="new password"/>
+                                    <div id="new-password" class="js-error"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="retypedNewPassword" name="retypedNewPassword" placeholder="re-type new password"/>
+                                    <div id="retyped-new-password" class="js-error"></div>
+                                </div>
+                            </div>
+                        </div><br>
                         <center><button type="submit" class="btn-default btn-cf-submit">Update Details</button></center><br><br>
                     </form>
                 </div>
-
-
-
             </div>
         </div>
     </div>

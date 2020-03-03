@@ -8,21 +8,21 @@ public class DepartmentsController {
 
     @RequestMapping("/electrical")
     public String getElectrical() {
-        return "/departments/electrical";
+        return "/departments/electrical/electrical";
     }
 
     @RequestMapping("/civil")
     public String getCivil() {
-        return "/departments/civil";
+        return "/departments/civil/civil";
     }
 
     @RequestMapping("/geology")
     public String getGeology() {
-        return "/departments/geology";
+        return "/departments/geology/geology";
     }
 
     @RequestMapping("/mining")
     public String getMining() {
-        return "/departments/mining";
+        return "/departments/mining/mining";
     }
 }

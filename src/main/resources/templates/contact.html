@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>contact</title>
+    <title th:text="${contact}"></title>
     <th:block th:replace="fragments/layouts::script">script</th:block>
 </head>
 <body>
@@ -19,19 +19,23 @@
 
                 <div id="note"></div>
                 <div id="fields">
-                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/sendMessage}" method="post">
+                    <form id="ajax-contact-form" class="form-horizontal" th:action="@{/contact}" method="post" onsubmit="return validateContact(this)">
                         <div class="row">
-                            <div th:if="${messageSent}" class="alert alert-success">Your message has been sent! We'll get in touch soon.</div>
+                            <div class="col-sm-12">
+                                <div th:if="${messageSent}" class="success">Your message has been sent! We'll get in touch soon.</div>
+                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="enter your name">
-                                    <div th:if="${nameBlank}" style="color: red;">The email field can not be blank</div>
+                                    <div id="contact-fullname-label" class="js-error"></div>
+                                    <div th:if="${nameBlank}" class="error">The name field can not be blank</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="enter your email">
-                                    <div th:if="${emailBlank}" style="color: red;">The email field can not be blank</div>
+                                    <div id="contact-email-label" class="js-error"></div>
+                                    <div th:if="${emailBlank}" class="error">The email field can not be blank</div>
                                 </div>
                             </div>
                         </div>
@@ -39,12 +43,14 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="subject" name="subject" placeholder="enter the subject of your message">
-                                    <div th:if="${subjectBlank}" style="color: red;">The subject field can not be blank</div>
+                                    <div id="contact-subject-label" class="js-error"></div>
+                                    <div th:if="${subjectBlank}" class="error">The subject field can not be blank</div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="phone" name="phone" placeholder="enter your phone-number">
+                                    <div id="contact-phone-label" class="js-error"></div>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +58,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <textarea class="form-control" rows="5" id="message" name="message" placeholder="write your message"></textarea>
-                                    <div th:if="${messageBlank}" style="color: red;">The email field can not be blank</div>
+                                    <div id="contact-message-label" class="js-error"></div>
+                                    <div th:if="${messageBlank}" class="error">The email field can not be blank</div>
                                 </div>
                             </div>
                         </div>

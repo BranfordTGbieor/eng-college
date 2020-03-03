@@ -2,64 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
+    <title th:text="${about}"></title>
     <th:block th:replace="fragments/layouts::script">script</th:block>
 </head>
 <body>
 <div th:replace="fragments/layouts::header"></div>
-<br><br>
-<div class="container">
-    <div class="rowme">
-        <div class="col-md-8">
-            </ol>
-            <div class="imgWrap">
 
-                <h3><span>About the College of Engineering</span></h3>
-                <a href=""><img src="images/blog3.jpg" class="image"></a>
-
-
-            </div>
-            <div class="container-blog">
-
-                <p class="blogtext">This is the post with title</p>
-                <p>Quisque accumsan nisl eros, vel sagittis justo consequat in. Sed ut gravida enim, sed lobortis nibh. Etiam dapibus felis in libero ultricies rutrum. Aliquam pellentesque justo ut quam pulvinar rhoncus. Sed gravida lobortis congue. Praesent ultricies orci ut enim pellentesque aliquam. Proin viverra lorem nisi, eu mollis ipsum elementum nec. Cras pretium purus nulla, vitae fermentum erat venenatis et.</p>
-
-            </div>
-
-
-            <div class="center">
-                    <div class="btn btn-orange">read more</div>
-            </div>
+<div class="container mtb">
+    <div class="page_title2"><span><em class="l"></em>About the college<em class="r"></em></span></div><br><br>
+    <div class="row">
+        <div style="width: 50%;" class="col-lg-6">
+            <img style="height: auto; max-width: 100%;" class="img-responsive" src="images/agency.jpg" alt="">
         </div>
 
-        <div class="col-md-3">
-            <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-orange" type="button">SEARCH <i class="fa fa-search"></i></button>
-      </span>
-                <input type="text" class="form-control" placeholder="Search for...">
-            </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item active">
-                    CATEGORIES
-                </a>
-                <a href="#" class="list-group-item"> Diagnose & Research <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Cancer Oncology <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Dental sergery <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Neurology <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Drug / Medicine <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Heart Center <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Ambulance <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Medical Counseling <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Pregnancy & Births <i class="fa fa-plus-square orangem"></i></a>
-                <a href="#" class="list-group-item">Endocrinology <i class="fa fa-plus-square orangem"></i></a>
-            </div>
+        <div style="width: 50%;" class="col-lg-6">
+            <h4 style="font-size: 30px;">The College of Engineering</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
+                undoubtable source.</p>
+            <p><br/><a th:href="@{/contact}" class="btn-default btn-cf-submit">Contact Us</a></p>
         </div>
     </div>
-
 </div>
-<br>
-<br>
 
 <div class="row">
     <th:block th:replace="fragments/layouts::footer">footer</th:block>

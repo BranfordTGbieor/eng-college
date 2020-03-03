@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe</title>
+    <th:block th:replace="fragments/layouts::script">script</th:block>
+</head>
+<body>
+<div th:replace="fragments/layouts::header"></div>
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+    <div id="contacts">
+        <div class="page_title2"><span><em class="l"></em>Subscribe for updates<em class="r"></em></span></div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h3 class="my_page_title">enter your email to subscribe for news updates</h3>
+
+                <div id="note"></div>
+                <div id="fields">
+                    <form id="ajax-contact-form" th:action="@{/subscribe}" onsubmit="return validateEmailSubscription(this)" method="post">
+                        <div class="form-group">
+                            <div class="success" th:if="${subscribeMessageSent}">check your email to confirm subscription</div>
+                            <div class="error" th:if="${registerToSubscribe}">you'll have to register before subscribing!</div>
+                            <div class="warning" th:if="${alreadySubscribed}">you are already a subscribed user!</div>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="enter email to subscribe">
+                            <div id="subscribe-email" class="js-error"></div>
+                        </div>
+                        <center>
+                            <button type="submit" class="btn-default btn-cf-submit">Subscribe</button>&nbsp;&nbsp;&nbsp;
+                            <a th:href="@{/register}">wish to register?</a><br><br>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+    <th:block th:replace="fragments/layouts::footer">footer</th:block>
+</div>
+</body>
+</html>

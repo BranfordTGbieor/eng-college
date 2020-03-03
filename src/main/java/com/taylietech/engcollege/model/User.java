@@ -3,16 +3,21 @@ package com.taylietech.engcollege.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.taylietech.engcollege.model.security.Authority;
 import com.taylietech.engcollege.model.security.UserRole;
+import com.taylietech.engcollege.util.constraint.ValidPassword;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
 public class User implements UserDetails {
 
     public User() {}
@@ -20,30 +25,47 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false, updatable = false)
-    private Long id;
+    private Long userId;
+
+
     @Column(name = "username", nullable = false)
     private String userName;
+
     private String password;
+
     private String firstName;
+
     private String lastName;
 
 
     @Column(name = "email", nullable = false, updatable = false)
     private String email;
+
     private String phone;
+
     private boolean enabled=true;
+    private boolean subscribed;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<UserPost> userPost;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<UserComment> userComment;
+
+
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public void setUserName(String userName) {
@@ -101,6 +123,14 @@ public class User implements UserDetails {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public boolean isSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(boolean subscribed) {
+        this.subscribed = subscribed;
     }
 
 

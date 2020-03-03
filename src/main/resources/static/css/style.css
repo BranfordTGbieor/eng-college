@@ -72,7 +72,7 @@ border-left: 1px;
   float: left;
 }
 .navbar {
-  border-radius: 0px;
+  border-radius: 25px;
 }
 
 .navbar-inverse {
@@ -81,7 +81,7 @@ border-left: 1px;
   margin-bottom: 0px;
 }
 .navbar-merab {
-    background-color: #f2f7fa;
+    background-color: #fffff0;
     margin-bottom: 0px;
     padding-top: 10px;
       padding-left: 120px;
@@ -227,7 +227,7 @@ height: 250px;
 
 .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   padding-right: 0;
-    font-size: 15px;
+    font-size: 13px;
   background-color: #241F1F;
     min-height: 71px;
 }
@@ -511,14 +511,14 @@ letter-spacing: 4px;
 .fa-mr2x {
     cursor: pointer;
   font-size: 4.9em;
-    color: #2986e3;
+    color: #80461b;
     padding-left: 550px;
     padding-top: 16px;
 }
 .fa-m2x {
     cursor: pointer;
   font-size: 1.9em;
-    color: #cccccc;
+    color: #80461b;
     padding-right: 2px;
 }
 .fa-m2x:hover {
@@ -526,15 +526,60 @@ letter-spacing: 4px;
     color: #80461b;
     transition: 0.2s;
 }
+
+.fa-3x {
+    cursor: pointer;
+    color: #80461b;
+}
+
 .fa-3x:hover {
   
-    color: #6fb6fd;
-    transition: 0.2s;
+    color: #000;
+    transition: 0.5s;
 }
-.fa-3x {
-  
-    color: #2986e3;
+
+
+
+/*styling each social icon*/
+.fa-twitter-square:hover {
+
+    color: #00acee;
+    transition: 0.5s;
 }
+
+.fa-facebook-square:hover {
+
+    color: #3b5998;
+    transition: 0.5s;
+}
+
+.fa-google-plus-square:hover {
+
+    color: #db4a39;
+    transition: 0.5s;
+}
+
+.fa-linkedin-square:hover {
+
+    color: #0e76a8;
+    transition: 0.5s;
+}
+
+.fa-youtube-square:hover {
+
+    color: #c4302b;
+    transition: 0.5s;
+}
+
+.fa-pinterest-square:hover {
+
+    color: #c8232c;
+    transition: 0.5s;
+}
+
+
+
+
 
 .fa-5x {
   font-size: 8em;
@@ -744,7 +789,7 @@ color:black;
 .text-logo {
 padding-left: 500px;
 }
-.fa-phone, .fa-envelope-o {
+.fa-phone, .fa-user, .fa-bell, .fa-user-plus, .fa-envelope-o {
 color: #80461b;
     
 }
@@ -886,7 +931,7 @@ background-image: url(../images/screen.jpg);
 .page_title em.r{left: 100%;}
 
 
-.page_title2{font-size: 36px; line-height: 36px; color: #000; font-family: 'Raleway'; font-weight: 700; text-transform: uppercase; text-align: center; overflow: hidden; margin-top: 20px; margin-bottom: 30px;}
+.page_title2{font-size: 36px; line-height: 36px; color: #000; font-family: 'Londrina Sketch'; font-weight: 700; text-transform: uppercase; text-align: center; overflow: hidden; margin-top: 20px; margin-bottom: 30px;}
 .page_title2 span{display: inline-block; margin-top: 75px; padding: 0 60px; position: relative;}
 .page_title2 em{display: inline-block; width: 1000px; height: 22px; background: url(../images/h_px1.png) center center repeat-x; position: absolute; top: 50%; margin-top: -11px;}
 .page_title2 em.l{right: 100%;}
@@ -994,6 +1039,15 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
 }
 .btn-default.btn-cf-submit:hover{background: #80461b; color: #fff; border-color: #f2bf02;}
+
+
+/* button styles adjusted by me */
+.btn-default.btn-submit{background: none; color: #000; font-family: 'Asap'; font-size: 16px; line-height: 15px; font-weight: 400; padding: 10px 20px; text-decoration: none;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border: 1px solid #b9b9b9;
+    margin-left: 16px;
+    transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
+}
+.btn-default.btn-submit:hover{background: #80461b; color: #fff; border-color: #f2bf02;}
+
 
 
 .location1 i {

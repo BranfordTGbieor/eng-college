@@ -76,13 +76,13 @@ color:#80461b;
 }
     
 .container-blog {
-  margin-top: 421px;
+  margin-top: 450px;
   width: 750px;
   height: 100%;
 }
 
 .container-video {
-    margin-top: 129px;
+    margin-top: 20px;
     width: 750px;
     height: 100%;
 }
@@ -140,10 +140,11 @@ color:#80461b;
 
  .phtext2m {
     float: left;
+     color: #6d6d6d;
     
 }
 .navbar-merab {
-  background-color: #f2f7fa;
+  background-color: #fffff0;
   margin-bottom: 0px;
   padding-top: 10px;
   padding-left: 0px;
@@ -312,6 +313,7 @@ font-size: 45px;
 }
  .phtext2m {
     float: left;
+     color: #6d6d6d;
     
 }
 .logotext {
@@ -334,7 +336,7 @@ font-size: 45px;
     
 }
 .navbar-merab {
-  background-color: #f2f7fa;
+  background-color: #fffff0;
   margin-bottom: 0px;
   padding-top: 10px;
   padding-left: 0px;
@@ -466,6 +468,7 @@ font-size: 45px;
 }
  .phtext2m {
     float: left;
+     color: #6d6d6d;
     
 }
 .logotext {
@@ -493,7 +496,7 @@ font-size: 45px;
     
 }
 .navbar-merab {
-  background-color: #f2f7fa;
+  background-color: #fffff0;
   margin-bottom: 0px;
   padding-top: 10px;
   padding-left: 0px;
@@ -896,7 +899,7 @@ font-size: 40px;
     
 }
 .navbar-merab {
-  background-color: #f2f7fa;
+  background-color: #fffff0;
   margin-bottom: 0px;
   padding-top: 10px;
   padding-left: 0px;
@@ -1106,7 +1109,7 @@ h2, .h2 {
 }
     
 .navbar-merab {
-  background-color: #f2f7fa;
+  background-color: #fffff0;
   margin-bottom: 0px;
   padding-top: 10px;
   padding-left: 0px;
@@ -1152,7 +1155,7 @@ h2, .h2 {
     font-size: 27px;
     line-height: 36px;
     color: #000;
-    font-family: 'Raleway';
+    font-family: 'Londrina Sketch';
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;

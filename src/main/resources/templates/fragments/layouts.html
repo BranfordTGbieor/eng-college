@@ -8,9 +8,11 @@
     <meta name="description" content="Your description"/>
     <meta name="keywords" content="Your keywords"/>
     <meta name="author" content="Your name"/>
-    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/png"/>
     <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon" />
 
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Sketch&display=swap" rel="stylesheet">
 </head>
 <body>
 <th:block th:fragment="script">
@@ -26,6 +28,8 @@
     <link rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/media.css}"/>
     <!--Cascading Style Sheet end-->
+
+    <script th:src="@{/js/main.js}"></script>
 
 </th:block>
 
@@ -46,13 +50,15 @@
                             <i class="fa fa-facebook-square fa-m2x"></i>
                             <i class="fa fa-google-plus-square fa-m2x"></i>
                             <i class="fa fa-linkedin-square fa-m2x"></i>
-                            <i class="fa fa-behance-square fa-m2x"></i>
+                            <i class="fa fa-youtube-square fa-m2x"></i>
                             <i class="fa fa-pinterest-square fa-m2x"></i>
                         </div>
 
 
                         <div class="phtext1">
-                            <i class="fa fa-phone fa-lg"> </i> + 231 776 578 735  | <i class="fa fa-envelope-o fa-lg"></i> support@ulengineeringcollege.lr.edu
+                            <!--<span style="font-style: italic;" th:text="${user != null} ? ${#strings.toUpperCase(user.username)} : 'user is null'"></span>-->
+                            <i class="fa fa-phone fa-lg"> </i> + 231 776 578 735  &nbsp;| &nbsp;<i class="fa fa-envelope-o fa-lg"></i> support@ulengineeringcollege.lr.edu
+                            | &nbsp;<i class="fa fa-bell fa-lg"></i> <a th:href="@{/subscribe}" style="text-decoration: none; cursor: pointer;">subscribe to newsletter</a>
                         </div>
                     </div>
                 </div>
@@ -62,11 +68,26 @@
                 <div class="container">
                     <div class="col-lg-12">
                         <div class="phtext4m">
-                            <a href="index.html"><img th:src="@{/images/eng_logo.png}"/></i></a>&nbsp;College of Engineering
+                            <a th:href="@{/}"><img style="margin-top: -10px;" th:src="@{/images/eng_logo.png}"/></i></a>&nbsp;<span style="color: #80461b;">College of Engineering</span>
                         </div><br>
-                        <div class="phtext3">
-                            <div class="btn btn-default hidden-xs"><a th:href="@{/register}">Sign up</a></div>
-                            <div style="text-decoration: none;" class="btn btn-primary hidden-xs"><i class="fa fa-key fa-xs"></i>&nbsp;<a style="color: white;" th:href="@{/login}">Login</a></div>
+                        <div th:if="${session.user eq null}" class="phtext3" style="margin-top: -22px;">
+                            <a class="auth_link" style="text-decoration: none" th:href="@{/register}">register</a> |
+                            <a class="auth_link" style="text-decoration: none" th:href="@{/login}">Login</a>
+                        </div>
+                        <div th:if="${session.user ne null}" class="phtext3" style="margin-top: -22px;">
+                            <ul style="list-style-type: none;">
+                                <li class="dropdown">
+                                    <div style="display: inline-block; font-size: 20px;">
+                                        <span th:text="${session.user.firstName+' '+session.user.lastName}"></span>&nbsp;
+                                    </div>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-xs"></i></a>
+                                    <ul class="dropdown-menu" style="margin-left: 65px; width: inherit !important;">
+                                        <li><a class="black-text" th:href="@{/userDetails}"><span><i class="fa fa-cog fa-xs"></i>&nbsp;Setting</span></a></li>
+                                        <!--<li><a class="black-text" href="#"><span><i class="fa fa- fa-xs"></i>&nbsp;Profile</span></a></li>-->
+                                        <li><a class="black-text" th:href="@{/logout}"><span><i class="fa fa-sign-out fa-xs"></i>&nbsp;Logout</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -87,12 +108,28 @@
                             <!--<a class="navbar-brand" href="#"> Company name</a>-->
                         </div>
                         <div class="collapse navbar-collapse" id="responsive-menu">
-
-
                             <ul class="nav navbar-nav">
                                 <li th:classappend="${activeHome}? 'active'"><a th:href="@{/}">HOME</a></li>
                                 <li th:classappend="${activeAbout}? 'active'"><a th:href="@{/about}">ABOUT</a></li>
                                 <li th:classappend="${activeContact}? 'active'"><a th:href="@{/contact}">CONTACT</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" th:classappend="${activeCommunity}? 'active'" class="dropdown-toggle" data-toggle="dropdown">COMMUNITY<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/campus}">Campus</a></li>
+                                        <li><a th:href="@{/resources}">Resources</a></li>
+                                        <li><a th:href="@{/blog}">Student blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" th:classappend="${activePrograms}? 'active'" class="dropdown-toggle" data-toggle="dropdown">PROGRAMS<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/research}">Research</a></li>
+                                        <li><a th:href="@{/innovation}">Innovation</a></li>
+                                        <li><a th:href="@{/stem}">STEM</a></li>
+
+                                    </ul>
+                                </li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">DEPARTMENTS <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -115,7 +152,7 @@
 
 <th:block th:fragment="footer">
 
-
+    <div class="container-fluid1"></div>
     <div class="navbar navbar-inverse navbar-bottom">
         <div class="container-fluid">
             <div class="row">
@@ -135,19 +172,11 @@
                         <div class="collapse navbar-collapse" id="responsive-menu">`
                             <ul class="nav navbar-nav">
                                 <li><a href="index.html">HOME</a></li>
-                                <li><a href="index.html#about">ABOUT</a></li>
-                                <li><a href="index.html#ourteam">OUR TEAM</a></li>
-                                <li><a href="index.html#services">SERVICES</a></li>
-                                <li class="dropup">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog.html">Blog Left</a></li>
-                                        <li><a href="blog-right.html">Blog Right</a></li>
-
-                                    </ul>
-                                </li>
-                                <li><a href="index.html#products">GALLERY</a></li>
                                 <li><a href="index.html#contacts">CONTACT</a></li>
+                                <li><a href="index.html#services">CAMPUS</a></li>
+                                <li><a href="index.html#products">BLOG</a></li>
+                                <li><a href="index.html#about">WRITE AN ARTICLE</a></li>
+                                <li><a href="index.html#ourteam">ADMINISTRATION</a></li>
                                 <div class="phtext4b">
                                     <a href="index.html"><img class="merabino-bottom" th:src="@{/images/eng_logob.png}"></a> College of Engineering <span class="meraba1b"></span>
                                 </div>
@@ -158,6 +187,52 @@
 
                 </div>
 
+            </div>
+
+            <div class="row">
+
+                <div class="navbar navbar-merab">
+                    <div class="container">
+
+                        <div class="col-lg-12">
+                            <div class="phtext2m">
+                                <h2 class="">connect with us</h2>
+                                <i class="fa fa-twitter-square fa-3x"></i>
+                                <i class="fa fa-facebook-square fa-3x"></i>
+                                <i class="fa fa-google-plus-square fa-3x"></i>
+                                <i class="fa fa-linkedin-square fa-3x"></i>
+                                <i class="fa fa-youtube-square fa-3x"></i>
+                                <i class="fa fa-pinterest-square fa-3x"></i>
+                            </div>
+
+
+                            <div class="phtext1">
+                                <div class="row">
+                                    <form id="ajax-contact-form" action="#" method="post" onsubmit="return validateSearch(this)">
+                                        <h2 style="margin-left: 14px;" class="">search this site</h2>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="search" id="search" class="form-control mr-3" placeholder="Search" onblur="document.getElementById('search-site').innerHTML = '';"/>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input style="margin-left: -18px;" type="submit" value="Search" class="btn-default btn-submit"/>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="search-site" class="js-error"></div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                <p style="color: #ffffff; text-align: center; padding: 20px;">
+                    <strong>University of Liberia</strong>
+                    <br>Copyright &copy;
+                    <script type="text/JavaScript">var theDate=new Date();document.write(theDate.getFullYear()) </script>
+                </p>
             </div>
         </div>
     </div>
@@ -190,6 +265,7 @@
 <script th:src="@{/js/scripts.js}"></script>
 
 <script th:src="@{/js/bootstrap.min.js}"></script>
+
 <!--java script end-->
 
 </body>
